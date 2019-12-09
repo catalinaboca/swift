@@ -1,5 +1,5 @@
 import Foundation
-func citeste(a:inout Float,b:inout Float,c:inout Float)
+func citeste(_ a:inout Float,_ b:inout Float,_ c:inout Float)
 {
 print("Dati a : ")
 let s_o_a=readLine()//string optional
@@ -57,7 +57,7 @@ else
   print("Nu a citit nimic in a")
 }
 }
-func calculeaza(a:Float,b:Float,c:Float,x1_re:inout Float,x1_im:inout Float,x2_re:inout Float ,x2_im:inout Float)
+func calculeaza(_ a:Float,_ b:Float,_ c:Float,_ x1_re:inout Float,_ x1_im:inout Float,_ x2_re:inout Float ,_ x2_im:inout Float)
 {
   let delta=b*b-4*a*c
   if delta>=0
@@ -75,7 +75,7 @@ func calculeaza(a:Float,b:Float,c:Float,x1_re:inout Float,x1_im:inout Float,x2_r
        x2_im=sqrt(-delta)/(2*a)
   }
 }
-func tipareste(x1_re:Float,x1_im:Float,x2_re:Float,x2_im:Float)
+func tipareste(_ x1_re:Float,_ x1_im:Float,_ x2_re:Float,_ x2_im:Float)
 {
   print("x1_re=\(x1_re) x1_im=\(x1_im) x2_re=\(x2_re) x2_im=\(x2_im)")
 }
@@ -88,6 +88,6 @@ x1_re=0
 x1_im=0
 x2_re=0
 x2_im=0
-citeste(a:&a,b:&b,c:&c)
-calculeaza(a:a,b:b,c:c,x1_re:&x1_re,x1_im:&x1_im,x2_re:&x2_re,x2_im:&x2_im)
-tipareste(x1_re:x1_re,x1_im:x1_im,x2_re:x2_re,x2_im:x2_im)
+citeste(&a,&b,&c)
+calculeaza(a,b,c,&x1_re,&x1_im,&x2_re,&x2_im)
+tipareste(x1_re,x1_im,x2_re,x2_im)
