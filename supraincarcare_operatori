@@ -1,0 +1,83 @@
+class t_multime
+{
+  var elemente:[Int]
+  init()
+  {
+    elemente=[]
+  }
+  init(_ a: Int)
+  {
+    elemente=[a]
+  }
+  
+  deinit
+  {
+    elemente=[]
+  }
+  func exista(_ a:Int)->Bool
+  {
+    for x in elemente
+    {
+        if a==x
+        {
+          return true
+        }
+    }
+    return false
+  }
+  func adauga(_ a:Int)
+  {
+   if !exista(a)
+   {
+     elemente+=[a]
+   }
+  }
+  func tipareste()
+  {
+    for x in elemente
+    {
+      print(x)
+    }
+  }
+ static func +=(st: t_multime ,dr: Int)
+  {
+    st.adauga(dr)
+  }
+  static func +(st: t_multime , dr: t_multime)-> t_multime  
+  {
+  let tmp = t_multime(st)
+    for x in dr.elemente
+    {
+      tmp+=x
+    }
+    return tmp
+  }
+}
+enum t_cazuri_testare
+{
+  case ct_simplu ,ct_param,adauga,operator_plus_egal,operator_plus
+}
+var caz_curent = t_cazuri_testare.ct_simplu
+switch caz_curent
+{
+  case  .ct_simplu:
+  let m=t_multime()
+  m.tipareste()
+  case .ct_param:
+  let m=t_multime(5)
+  m.tipareste()
+  case .adauga:
+  let m=t_multime(5)
+  m.adauga(4)
+  m.tipareste()
+  case .operator_plus_egal:
+  let m=t_multime(5)
+  m+=4
+  m.tipareste()
+  case .operator_plus:
+  let m1=t_multime(5)
+  let m2=t_multime(4)
+  var m3=t_multime(3)
+  m3=m1+m2
+  m3.tipareste()
+}
